@@ -11,7 +11,7 @@ import (
 var RootCmd = &cobra.Command{
 	Use:   "docker-utils",
 	Short: "Toolchain for docker",
-	Long:  `Missing docker functions`,
+	Long:  `Some missing docker functions`,
 }
 
 // Execute adds all child commands to the root command sets flags appropriately.
