@@ -25,6 +25,7 @@ func init() {
 
 	// Here you will define your flags and configuration settings.
 	rmCmd.Flags().BoolP("exited", "e", true, "exited containers")
+	rmCmd.Flags().BoolP("created", "c", false, "created containers")
 }
 
 func removeContainers(cmd *cobra.Command, args []string) {
@@ -38,6 +39,10 @@ func removeContainers(cmd *cobra.Command, args []string) {
 	exited, _ := cmd.Flags().GetBool("exited")
 	if exited {
 		filters.Add("status", "exited")
+	}
+	created, _ := cmd.Flags().GetBool("created")
+	if created {
+		filters.Add("status", "created")
 	}
 
 	options := types.ContainerListOptions{Filter: filters}
